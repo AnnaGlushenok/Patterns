@@ -6,10 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class JSON implements Files{
-    public static Car[] read() {
+public class JSON implements Files {
+    public Car[] read() {
+        System.out.println("read JSON");
         Car[] cars = null;
-        try (FileReader reader = new FileReader("./cars.json")) {
+        try (FileReader reader = new FileReader("cars.json")) {
             cars = new Gson().fromJson(reader, Car[].class);
         } catch (IOException e) {
             e.printStackTrace();
@@ -17,8 +18,9 @@ public class JSON implements Files{
         return cars;
     }
 
-    public static void write(Car[] cars) {
-        try (FileWriter writer = new FileWriter("./cars.json")) {
+    public void write(Car[] cars) {
+        System.out.println("write JSON");
+        try (FileWriter writer = new FileWriter("cars.json")) {
             new Gson().toJson(cars, writer);
         } catch (IOException e) {
             e.printStackTrace();
