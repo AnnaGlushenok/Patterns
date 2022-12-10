@@ -1,14 +1,27 @@
-public class Decorator implements Paint {
-    private Paint paint;
-    private String action;
+public class Decorator implements ICalculator {
+    private ICalculator calculator;
 
-    public Decorator(Paint paint, String action) {
-        this.paint = paint;
-        this.action = action;
+    public Decorator(ICalculator calculator) {
+        this.calculator = calculator;
     }
 
     @Override
-    public String draw() {
-        return paint.draw() + "\n" + this.action;
+    public int sum(int a, int b) {
+        return calculator.sum(a, b);
+    }
+
+    @Override
+    public int sub(int a, int b) {
+        return calculator.sub(a, b);
+    }
+
+    @Override
+    public int mul(int a, int b) {
+        return calculator.mul(a, b);
+    }
+
+    @Override
+    public int div(int a, int b) {
+        return calculator.div(a, b);
     }
 }
