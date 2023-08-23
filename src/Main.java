@@ -1,11 +1,14 @@
+import Delivery.DeliveryFactory;
+import Delivery.RailwayDelivery;
+import Enums.Countries;
+
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        Barista barista = new Barista();
-        Coffee americano = menu.americano(barista);
-        System.out.println("\n" + americano);
-        System.out.println();
-        Coffee latte = menu.latte(barista);
-        System.out.println("\n" + latte);
+        RailwayDelivery deliveryRussia = (RailwayDelivery) DeliveryFactory.getDeliveryFromFactory(Countries.RUSSIA);
+        deliveryRussia.setTrackSize(10);
+        deliveryRussia.setHasBallast(true);
+        deliveryRussia.setMaxSize(1000);
+        deliveryRussia.setCompanyName("innowise");
+        deliveryRussia.setMaxCapacity(10000);
     }
 }
